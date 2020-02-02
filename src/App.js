@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './App.module.css';
-import { Login } from './Login.js'
+import { Login } from './login.js'
+import { Home } from './home.js'
 
 
 function App() {
@@ -8,6 +9,8 @@ function App() {
 
     <div className={styles.app}>
       <Login></Login>
+
+
 
     </div>
   );

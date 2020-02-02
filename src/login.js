@@ -5,12 +5,12 @@ import { http } from './http';
 
 
 
-
-
 export function Login() {
 
     const [email, setEmail] = useState(" ");
     const [password, setPassword] = useState(" ");
+
+
 
     function submit() {
         http.post("/users", {
@@ -18,6 +18,8 @@ export function Login() {
             password
 
         })
+
+        document.location.href = "home.js"
     }
     return (
 
