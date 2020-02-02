@@ -1,17 +1,23 @@
-import React from 'react';
-import styles from './App.module.css';
-import { Login } from './login.js'
-import { Home } from './home.js'
-
+import React from "react";
+import styles from "./App.module.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Login } from "./Login";
+import { Home } from "./Home";
 
 function App() {
   return (
-
     <div className={styles.app}>
-      <Login></Login>
+      <Router>
+        <Switch>
+          <Route path="/login">
+            <Login></Login>
+          </Route>
 
-
-
+          <Route exact path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

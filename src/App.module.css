@@ -1,25 +1,23 @@
 .app {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .login {
-    display:grid;
-    flex-direction: row;
-    
+  display: grid;
+  flex-direction: row;
 }
 
-
-.username{
-    margin-bottom: var(--s);
+.username {
+  margin-bottom: var(--s);
 }
 
-.password{
-    margin-bottom: var(--s);
+.password {
+  margin-bottom: var(--s);
 }
 
-.button{
-    margin-top: var(--s);  
+.button {
+  margin-top: var(--s);
 }
