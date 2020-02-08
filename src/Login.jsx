@@ -10,12 +10,14 @@ export function Login() {
   const route = useHistory();
 
   async function submit() {
-    await http.put("/users", {
+    const response = await http.put("/users", {
       email,
       password
     });
+    localStorage.setItem("token", response.data.token);
     route.push("/");
   }
+
   return (
     <div className={styles.login}>
       <Form>
@@ -26,7 +28,7 @@ export function Login() {
           type="email"
           placeholder="Email"
         />
-        <Form.Label></Form.Label>
+
         <Form.Control
           onChange={event => setPassword(event.target.value)}
           id="password"

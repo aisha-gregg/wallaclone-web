@@ -17,6 +17,9 @@ function App() {
             <Home />
           </Route>
         </Switch>
+        <Route path="/create-add">
+          <createAd></createAd>
+        </Route>
       </Router>
     </div>
   );
