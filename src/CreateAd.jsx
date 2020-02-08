@@ -9,8 +9,17 @@ export function CreateAd() {
   const [adDescription, setAdDescription] = useState("");
   const [adPrice, setAdPrice] = useState("");
   const [tag, setTag] = useState("");
+  const [image, setImage] = useState("");
 
   const route = useHistory();
+
+  function getBase64(file, callback) {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function() {
+      callback(reader.result);
+    };
+  }
 
   async function onSubmit() {
     await http.post("/ads", {
@@ -18,7 +27,7 @@ export function CreateAd() {
       description: adDescription,
       sell: false,
       price: adPrice,
-      image: "",
+      image,
       tags: [tag]
     });
     route.push("/");
@@ -49,6 +58,12 @@ export function CreateAd() {
           placeholder="Ad Price"
         ></Form.Control>
         <Form.Label>Tag</Form.Label>
+        <input
+          type="file"
+          onChange={event => {
+            getBase64(event.target.files[0], image => setImage(image));
+          }}
+        />
         <Dropdown>
           <Dropdown.Toggle variant="outline-dark" id="dropdown">
             {tag}

@@ -19,6 +19,7 @@ export function ViewAds() {
           <h2>{ad.name}</h2>
           <p>{ad.description}</p>
           <p>{ad.price}</p>
+          <img src={ad.image} />
           <p>
             {ad.tags.map(tag => (
               <span key={ad._id + tag}>{tag}</span>
