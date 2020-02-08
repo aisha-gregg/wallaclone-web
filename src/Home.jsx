@@ -1,10 +1,6 @@
-import React, { useEffect } from "react";
-import { http } from "./http";
-import { CreateAd } from "./CreateAd";
+import React from "react";
+import { ViewAds } from "./ViewAds";
 
 export function Home() {
-  useEffect(() => {
-    http.get("/ads");
-  });
-  return <CreateAd />;
+  return <ViewAds />;
 }

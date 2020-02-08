@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Login } from "./Login";
 import { Home } from "./Home";
 
+import { CreateAd } from "./CreateAd";
+
 function App() {
   return (
     <div className={styles.app}>
@@ -13,13 +15,14 @@ function App() {
             <Login></Login>
           </Route>
 
+          <Route path="/create-ad">
+            <CreateAd></CreateAd>
+          </Route>
+
           <Route exact path="/">
             <Home />
           </Route>
         </Switch>
-        <Route path="/create-add">
-          <createAd></createAd>
-        </Route>
       </Router>
     </div>
   );
