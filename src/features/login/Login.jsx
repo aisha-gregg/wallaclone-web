@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styles from "./login.module.css";
 import { Button, Form } from "react-bootstrap";
-import { http } from "./http";
+import { http } from "../../core/http";
 import { useHistory } from "react-router-dom";
-import { Header } from "./Header";
+import { Header } from "../../components/header/Header";
 
 export function Login() {
   const [email, setEmail] = useState("");

@@ -1,10 +1,8 @@
 import React from "react";
-
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Login } from "./Login";
-import { Home } from "./Home";
-
-import { CreateAd } from "./CreateAd";
+import { Login } from "./features/login/Login";
+import { Home } from "./features/home/Home";
+import { CreateAd } from "./features/create-ads/CreateAd";
 
 function App() {
   return (

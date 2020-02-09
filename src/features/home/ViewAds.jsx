@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { http } from "./http";
-import { AdList } from "./AdList";
+import { http } from "../../core/http";
+import { AdList } from "../../components/ad-list/AdList";
 
 export function ViewAds() {
   const [ads, setAds] = useState([]);

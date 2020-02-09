@@ -1,6 +1,6 @@
 import React from "react";
 import { ViewAds } from "./ViewAds";
-import { Header } from "./Header";
+import { Header } from "../../components/header/Header";
 
 export function Home() {
   return (
