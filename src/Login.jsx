@@ -45,7 +45,7 @@ export function Login() {
             className={styles.button}
             onClick={() => submit()}
             id="submit"
-            variant="outline-dark"
+            variant="warning"
           >
             Login
           </Button>

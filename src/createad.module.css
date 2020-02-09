@@ -9,13 +9,13 @@
 .form {
   border-bottom: ridge;
 
-  padding-bottom: 5px;
+  padding-bottom: var(--s);
 }
 
-#dropdown {
+.dropdown {
   min-width: max-content;
 }
 
 .button {
-  margin-top: 10px;
+  margin-top: var(--m);
 }

@@ -6,7 +6,7 @@ export function AdList({ ads }) {
     <div className={styles.border}>
       {ads.map(ad => (
         <section className={styles.ad} key={ad._id}>
-          <h2 className={styles.header2}>{ad.name}</h2>
+          <h2 className={styles.header}>{ad.name}</h2>
           <p className={styles.adinfo}>{ad.description}</p>
           <p className={styles.adprice}>{ad.price}</p>
           <img className={styles.adimage} src={ad.image} />

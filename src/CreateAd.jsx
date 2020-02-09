@@ -67,10 +67,8 @@ export function CreateAd() {
           }}
         />
 
-        <Dropdown>
-          <Dropdown.Toggle variant="outline-dark" id="dropdown">
-            {tag}
-          </Dropdown.Toggle>
+        <Dropdown className={styles.dropdown}>
+          <Dropdown.Toggle variant="secondary">{tag}</Dropdown.Toggle>
           <Dropdown.Menu>
             <Dropdown.Item
               onSelect={event => setTag("lifestyle")}
@@ -93,7 +91,7 @@ export function CreateAd() {
         <Button
           className={styles.button}
           id="submit"
-          variant="outline-dark"
+          variant="secondary"
           onClick={() => onSubmit()}
         >
           Create Add
