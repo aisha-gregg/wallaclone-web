@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Form, Button, Dropdown } from "react-bootstrap";
-import styles from "./createadd.module.css";
+import styles from "./createad.module.css";
 import { http } from "./http";
 import { useHistory } from "react-router-dom";
+import { Header } from "./Header";
 
 export function CreateAd() {
   const [adName, setAdName] = useState("");
@@ -34,8 +35,10 @@ export function CreateAd() {
   }
 
   return (
-    <div className={styles.formbox}>
+    <div className={styles.wrapper}>
+      <Header></Header>
       <Form.Label> Create your own Ad!</Form.Label>
+
       <Form className={styles.form}>
         <Form.Control
           onChange={event => setAdName(event.target.value)}
@@ -57,13 +60,13 @@ export function CreateAd() {
           type="text"
           placeholder="Ad Price"
         ></Form.Control>
-        <Form.Label>Tag</Form.Label>
         <input
           type="file"
           onChange={event => {
             getBase64(event.target.files[0], image => setImage(image));
           }}
         />
+
         <Dropdown>
           <Dropdown.Toggle variant="outline-dark" id="dropdown">
             {tag}

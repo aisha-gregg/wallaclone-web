@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.form {
+  border-bottom: ridge;
+
+  padding-bottom: 5px;
+}
+
+#dropdown {
+  min-width: max-content;
+}
+
+.button {
+  margin-top: 10px;
+}
