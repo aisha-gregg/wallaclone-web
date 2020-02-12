@@ -1,36 +1,63 @@
 .border {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 2fr);
   padding: 40px;
   grid-gap: 10px;
 }
 
 .ad {
   border: 2px solid rgb(192, 190, 190);
-  border-radius: 20px;
+  border-radius: var(--border-radius);
   background-color: #fafafa;
 }
 
 .header {
-  color: white;
-  background-color: rgb(39, 37, 37);
-  border-radius: 10px;
+  padding: var(--s);
+  color: var(--on-secondary-color);
+  background-color: var(--secondary-color);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--secondary-color);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
-.adinfo {
-  justify-content: center;
+.info {
 }
 
-.adprice {
-  color: red;
+.price {
+  color: var(--red-color);
 }
 
-.adimage {
-  max-width: 80px;
+.image {
+  width: 100%;
 }
 
 .tags {
-  background-color: rgb(184, 185, 185);
-  max-width: max-content;
-  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag {
+  border: none;
+  border-radius: 9999px;
+  padding: var(--xs) var(--s);
+}
+
+.tag-lifestyle {
+  color: var(--on-blue-color);
+  background-color: var(--blue-color);
+}
+
+.tag-mobile {
+  color: var(--on-red-color);
+  background-color: var(--red-color);
+}
+
+.tag-work {
+  color: var(--on-yellow-color);
+  background-color: var(--yellow-color);
+}
+
+.footer {
+  border-top: 1px solid black;
 }

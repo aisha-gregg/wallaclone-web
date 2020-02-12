@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:300i,400,700|Nunito:900&display=swap");
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: var(--body-font);
@@ -8,19 +12,37 @@ body {
 }
 
 :root {
+  /* Spacing */
   --xs: 0.25rem;
   --s: 0.5rem;
   --m: 1rem;
   --l: 2rem;
   --xl: 4rem;
+
+  /* Theme */
   --primary-color: #0442bf;
   --on-primary-color: white;
   --secondary-color: #103b73;
   --on-secondary-color: white;
   --accent-color: #eaaf25;
   --on-accent-color: black;
+
+  /* Font */
   --body-font: "Lato", sans-serif;
   --header-font: "Nunito", sans-serif;
+
+  /* Colors */
+  --blue-color: #0442bf;
+  --on-blue-color: white;
+  --red-color: red;
+  --on-red-color: black;
+  --yellow-color: gold;
+  --on-yellow-color: black;
+  --green-color: green;
+  --on-green-color: black;
+
+  /* Misc */
+  --border-radius: 20px;
 }
 
 h1,

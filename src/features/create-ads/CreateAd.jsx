@@ -9,6 +9,8 @@ export function CreateAd() {
   const [adName, setAdName] = useState("");
   const [adDescription, setAdDescription] = useState("");
   const [adPrice, setAdPrice] = useState("");
+  const [type, setType] = useState("");
+
   const [tag, setTag] = useState("");
   const [image, setImage] = useState("");
 
@@ -26,7 +28,7 @@ export function CreateAd() {
     await http.post("/ads", {
       name: adName,
       description: adDescription,
-      sell: false,
+      sell: type === "selling" ? true : false,
       price: adPrice,
       image,
       tags: [tag]
@@ -42,24 +44,48 @@ export function CreateAd() {
       <Form className={styles.form}>
         <Form.Control
           onChange={event => setAdName(event.target.value)}
-          id="Ad"
+          id="name"
           type="text"
-          placeholder="Ad Title"
+          placeholder="Title"
         ></Form.Control>
 
         <Form.Control
           onChange={event => setAdDescription(event.target.value)}
-          id="Description"
+          id="description"
           type="text"
-          placeholder="Ad Description"
+          placeholder="Description"
         ></Form.Control>
 
         <Form.Control
           onChange={event => setAdPrice(event.target.value)}
-          id="Ad"
-          type="text"
-          placeholder="Ad Price"
+          id="price"
+          type="number"
+          placeholder="Price"
         ></Form.Control>
+
+        <Form.Check
+          onChange={event => {
+            setType(event.target.value);
+          }}
+          custom
+          checked={type === "buying"}
+          value="buying"
+          type="radio"
+          id="buying"
+          label="Buying"
+        ></Form.Check>
+        <Form.Check
+          onChange={event => {
+            setType(event.target.value);
+          }}
+          checked={type === "selling"}
+          custom
+          value="selling"
+          type="radio"
+          id="selling"
+          label="Selling"
+        ></Form.Check>
+
         <input
           type="file"
           onChange={event => {
