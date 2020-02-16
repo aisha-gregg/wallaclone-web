@@ -1,7 +1,17 @@
-.searchbar {
-  width: max-content;
+.search {
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--m);
 }
 
-.searchbutton {
-  background-color: blue;
+.searchbar {
+  border-radius: var(--m);
+}
+
+.filter {
+  max-width: 40px;
+  display: flex;
+  justify-items: center;
+  align-content: center;
+  cursor: pointer;
 }

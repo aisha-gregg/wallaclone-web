@@ -1,0 +1,12 @@
+.margin {
+  padding-top: var(--m);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}

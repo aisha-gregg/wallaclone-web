@@ -1,0 +1,16 @@
+.filters {
+  opacity: 0;
+  transform: translate(-100%);
+  transition: 1s ease all;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 0;
+}
+
+.is-displayed {
+  opacity: 1;
+  transform: translateX(0);
+  height: 100%;
+}
