@@ -1,15 +1,14 @@
 import React from "react";
-import { http } from "../../core/http";
-import { useHistory } from "react-router-dom";
 import { Form } from "react-bootstrap";
-import styles from "./createad.module.css";
+import styles from "./Editad.module.css";
 import { Header } from "../../components/header/Header";
 import { AdForm } from "../../components/ad-form/AdForm";
+import { useHistory } from "react-router-dom";
 
-export function CreateAd() {
+export function EditAd() {
   const route = useHistory();
   async function onSubmit({ name, description, price, tags, sell, image }) {
-    await http.post("/ads", {
+    await http.put(`/ads/${route.location.pathname}`, {
       name,
       description,
       sell,
@@ -22,8 +21,9 @@ export function CreateAd() {
   return (
     <div className={styles.wrapper}>
       <Header></Header>
-      <Form.Label> Create your own Ad!</Form.Label>
-      <AdForm onSubmit={onSubmit} text="Create"></AdForm>
+
+      <Form.Label> Edit your Ad!</Form.Label>
+      <AdForm onSubmit={onSubmit} text="Edit"></AdForm>
     </div>
   );
 }

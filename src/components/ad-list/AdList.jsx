@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./AdList.module.css";
+import { Button } from "react-bootstrap";
 
 export function AdList({ ads }) {
   return (
@@ -12,9 +13,11 @@ export function AdList({ ads }) {
             <p className={styles.info}>{ad.description}</p>
             <p className={styles.price}>{ad.price}</p>
             <p>{ad.user.email}</p>
+            <p>{ad.isSold === false ? "" : "Sold"}</p>
             <p className={styles.id}>
               {ad.sell === false ? "buying" : "selling"}
             </p>
+            <Button className={styles.AdlistButton}>Edit</Button>
             <div className={styles.tags}>
               {ad.tags.map(tag => (
                 <span

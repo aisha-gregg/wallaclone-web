@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import { InputText } from "../input-text/InputText";
-import { InputNumber } from "../input-number/InputNumber";
-import { Button } from "../../components/button/Button";
 import styles from "./Filter.module.css";
-import { Form } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 
 export function Filter({ onApply, className }) {
   const [name, setName] = useState("");
@@ -24,30 +21,32 @@ export function Filter({ onApply, className }) {
         });
       }}
     >
-      <InputText
+      <Form.Control
         name="Nombre de anuncio"
         value={name}
         onValueChange={value => setName(value)}
-      ></InputText>
-      <InputNumber
+      ></Form.Control>
+      <Form.Control
+        type="number"
         name="Precio Mínimo"
         value={minPrice}
         onValueChange={value => setMinPrice(value)}
-      ></InputNumber>
-      <InputNumber
+      ></Form.Control>
+      <Form.Control
+        type="number"
         name="Precio Máximo"
         value={maxPrice}
         onValueChange={value => setMaxPrice(value)}
-      ></InputNumber>
+      ></Form.Control>
 
-      <InputText
+      <Form.Control
         className={styles.input}
         name="Tag"
         value={tags}
         onValueChange={value => setTags(value)}
-      ></InputText>
+      ></Form.Control>
 
-      <Button className={styles.button}>Aplicar</Button>
+      <Button>Aplicar</Button>
     </Form>
   );
 }

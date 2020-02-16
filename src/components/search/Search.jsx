@@ -1,12 +1,10 @@
 import React from "react";
 import styles from "./search.module.css";
-import { dropDownFilter } from "../dropdown/Dropdown";
 
-const SearchPage = () => {
+export function Search() {
   return (
     <div className={styles.search}>
       <img
-        onClick={() => dropDownFilter()}
         src="./images/filter.png"
         className={styles.filter}
         alt="image of a filter"
@@ -20,6 +18,4 @@ const SearchPage = () => {
       />
     </div>
   );
-};
-
-export default SearchPage;
+}
