@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, Dropdown, Button } from "react-bootstrap";
+import styles from "./AdForm.module.css";
 
 export function AdForm({ text, onSubmit }) {
   const [adName, setAdName] = useState("");
@@ -21,6 +22,7 @@ export function AdForm({ text, onSubmit }) {
   return (
     <Form
       onSubmit={e => {
+        console.log("hell");
         e.preventDefault();
         onSubmit({
           name: adName,
@@ -28,7 +30,7 @@ export function AdForm({ text, onSubmit }) {
           price: adPrice,
           tags: [tag],
           image,
-          sell: type === "selling" ? true : false
+          sell: type === "se compra" ? true : false
         });
       }}
     >
@@ -36,21 +38,21 @@ export function AdForm({ text, onSubmit }) {
         onChange={event => setAdName(event.target.value)}
         id="name"
         type="text"
-        placeholder="Title"
+        placeholder="Título"
       ></Form.Control>
 
       <Form.Control
         onChange={event => setAdDescription(event.target.value)}
         id="description"
         type="text"
-        placeholder="Description"
+        placeholder="Descripción"
       ></Form.Control>
 
       <Form.Control
         onChange={event => setAdPrice(event.target.value)}
         id="price"
         type="number"
-        placeholder="Price"
+        placeholder="Precio"
       ></Form.Control>
 
       <Form.Check
@@ -58,22 +60,22 @@ export function AdForm({ text, onSubmit }) {
           setType(event.target.value);
         }}
         custom
-        checked={type === "buying"}
+        checked={type === "se compra"}
         value="buying"
         type="radio"
         id="buying"
-        label="Buying"
+        label="Se compra"
       ></Form.Check>
       <Form.Check
         onChange={event => {
           setType(event.target.value);
         }}
-        checked={type === "selling"}
+        checked={type === "se vende"}
         custom
         value="selling"
         type="radio"
         id="selling"
-        label="Selling"
+        label="Se vende"
       ></Form.Check>
 
       <input
@@ -100,7 +102,8 @@ export function AdForm({ text, onSubmit }) {
           </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-      <Button>{text}</Button>
+
+      <Button type="submit">{text}</Button>
     </Form>
   );
 }

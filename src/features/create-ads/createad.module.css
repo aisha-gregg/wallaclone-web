@@ -17,5 +17,6 @@
 }
 
 .button {
+  padding: var(--l);
   margin-top: var(--m);
 }

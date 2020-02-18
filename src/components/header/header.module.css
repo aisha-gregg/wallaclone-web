@@ -1,8 +1,20 @@
 .header {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--primary-color);
   border-radius: var(--s);
   color: var(--on-primary-color);
   margin: 0;
   padding: var(--m);
+}
+.header h2 {
+  position: relative;
+  z-index: 1;
+}
+.logo {
+  z-index: 0;
+  position: absolute;
+
+  width: 9rem;
 }

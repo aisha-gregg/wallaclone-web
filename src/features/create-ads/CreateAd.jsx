@@ -22,8 +22,8 @@ export function CreateAd() {
   return (
     <div className={styles.wrapper}>
       <Header></Header>
-      <Form.Label> Create your own Ad!</Form.Label>
-      <AdForm onSubmit={onSubmit} text="Create"></AdForm>
+      <Form.Label> !Crear tu propio anuncio!</Form.Label>
+      <AdForm onSubmit={onSubmit} text="Crear"></AdForm>
     </div>
   );
 }

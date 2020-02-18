@@ -9,7 +9,7 @@ export function Home() {
     <div>
       <Header>Welcome to Wallaclone</Header>
 
-      <Search> </Search>
+      <Search></Search>
       <ViewAds></ViewAds>
     </div>
   );

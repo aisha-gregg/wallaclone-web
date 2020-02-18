@@ -10,7 +10,7 @@ export function Filter({ onApply, className }) {
 
   return (
     <Form
-      className={styles.margin + " " + className}
+      className={styles.margin + " " + className + " " + styles.wrapper}
       onSubmit={e => {
         e.preventDefault();
         onApply({
@@ -22,31 +22,27 @@ export function Filter({ onApply, className }) {
       }}
     >
       <Form.Control
-        name="Nombre de anuncio"
-        value={name}
-        onValueChange={value => setName(value)}
+        placeholder="Nombre de anuncio"
+        onChange={event => setName(event.target.value)}
       ></Form.Control>
       <Form.Control
         type="number"
-        name="Precio Mínimo"
-        value={minPrice}
-        onValueChange={value => setMinPrice(value)}
+        placeholder="Precio Mínimo"
+        onChange={event => setMinPrice(event.target.value)}
       ></Form.Control>
       <Form.Control
         type="number"
-        name="Precio Máximo"
-        value={maxPrice}
-        onValueChange={value => setMaxPrice(value)}
+        placeholder="Precio Máximo"
+        onChange={event => setMaxPrice(event.target.value)}
       ></Form.Control>
 
       <Form.Control
         className={styles.input}
-        name="Tag"
-        value={tags}
-        onValueChange={value => setTags(value)}
+        placeholder="Tag"
+        onChange={event => setTags(event.target.value)}
       ></Form.Control>
 
-      <Button>Aplicar</Button>
+      <Button type="submit">Aplicar</Button>
     </Form>
   );
 }

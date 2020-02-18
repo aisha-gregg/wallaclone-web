@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Login } from "./features/login/Login";
 import { Home } from "./features/home/Home";
 import { CreateAd } from "./features/create-ads/CreateAd";
+import { DetailAd } from "./features/detail-ad/DetailAd";
 
 function App() {
   return (
@@ -14,6 +15,10 @@ function App() {
 
         <Route path="/create-ad">
           <CreateAd></CreateAd>
+        </Route>
+
+        <Route path="/ads/:seoId">
+          <DetailAd></DetailAd>
         </Route>
 
         <Route exact path="/">

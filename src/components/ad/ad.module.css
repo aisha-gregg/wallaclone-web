@@ -1,0 +1,53 @@
+.header {
+  padding: var(--s);
+  color: var(--on-secondary-color);
+  background-color: var(--primary-color);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--secondary-color);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  line-height: 1;
+}
+
+.info {
+}
+
+.price {
+  color: var(--red-color);
+}
+
+.image {
+  width: 100%;
+}
+
+.tags {
+  padding: var(--m);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tag {
+  border: none;
+  border-radius: 9999px;
+  padding: var(--xs) var(--s);
+}
+
+.tag-lifestyle {
+  color: var(--on-blue-color);
+  background-color: var(--blue-color);
+}
+
+.tag-mobile {
+  color: var(--on-red-color);
+  background-color: var(--red-color);
+}
+
+.tag-work {
+  color: var(--on-yellow-color);
+  background-color: var(--yellow-color);
+}
+
+.footer {
+  border-top: 1px solid black;
+}

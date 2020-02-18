@@ -1,34 +1,20 @@
 import React from "react";
 import styles from "./AdList.module.css";
 import { Button } from "react-bootstrap";
+import { Ad } from "../ad/Ad";
 
-export function AdList({ ads }) {
+export function AdList({ ads, onAdClick }) {
   return (
     <div className={styles.border}>
       {ads.map(ad => (
         <section className={styles.ad} key={ad._id}>
-          <h2 className={styles.header}>{ad.name}</h2>
-          <img className={styles.image} alt="image of product" src={ad.image} />
-          <footer className={styles.footer}>
-            <p className={styles.info}>{ad.description}</p>
-            <p className={styles.price}>{ad.price}</p>
-            <p>{ad.user.email}</p>
-            <p>{ad.isSold === false ? "" : "Sold"}</p>
-            <p className={styles.id}>
-              {ad.sell === false ? "buying" : "selling"}
-            </p>
-            <Button className={styles.AdlistButton}>Edit</Button>
-            <div className={styles.tags}>
-              {ad.tags.map(tag => (
-                <span
-                  key={ad._id + tag}
-                  className={styles.tag + " " + styles[`tag-${tag}`]}
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </footer>
+          <Ad ad={ad}></Ad>
+          <Button
+            onClick={() => onAdClick(ad.url)}
+            className={styles.AdlistButton}
+          >
+            Ver
+          </Button>
         </section>
       ))}
     </div>
