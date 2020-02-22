@@ -1,55 +1,107 @@
-.header {
-  padding: var(--s);
-  color: var(--on-secondary-color);
-  background-color: var(--primary-color);
+.card {
   border-radius: var(--border-radius);
-  border: 1px solid var(--secondary-color);
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  line-height: 1;
-}
-
-.info {
-}
-
-.price {
-  color: var(--red-color);
+  display: flex;
+  box-shadow: 0 3px 15px 6px hsla(0, 0%, 0%, 0.1);
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
 }
 
 .image {
+  flex: 2;
   width: 100%;
+  object-fit: cover;
+}
+
+.information {
+  flex: 3;
+  padding: var(--l);
+}
+
+.price {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--white-color);
+  padding: var(--l);
+  text-shadow: 0px 3px 10px hsla(0, 0%, 0%, 0.75);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-wrapper {
+  position: relative;
+}
+
+.sold {
+  filter: grayscale(1);
+}
+
+.sold-text {
+  position: absolute;
+  transform: rotate(-45deg);
+  transform-origin: center;
+  top: 31px;
+  left: -50px;
+  color: var(--on-red-color);
+  font-size: var(--title-font-size);
+  background-color: var(--red-color);
+  width: 200px;
+  text-align: center;
+}
+
+.name {
+  display: flex;
+}
+
+.first-letter {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  color: var(--white-color);
+  background-color: var(--type-color);
+}
+
+.type {
+  margin-left: var(--s);
+}
+
+.buy {
+  --type-color: var(--red-color);
+}
+
+.sell {
+  --type-color: var(--green-color);
 }
 
 .tags {
-  padding: var(--m);
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
 }
 
 .tag {
   border: none;
   border-radius: 9999px;
-  padding: var(--xs) var(--s);
+  padding: var(--xs) var(--m);
+  border: 1px solid var(--tag-color);
+  color: var(--tag-color);
+  margin-right: var(--s);
 }
 
 .tag-lifestyle {
-  color: var(--on-blue-color);
-  background-color: var(--blue-color);
+  --tag-color: var(--blue-color);
 }
 
 .tag-mobile {
-  color: var(--on-red-color);
-  background-color: var(--red-color);
+  --tag-color: var(--red-color);
 }
 
 .tag-work {
-  color: var(--on-yellow-color);
-  background-color: var(--yellow-color);
-}
-
-.footer {
-  border-top: 1px solid black;
-  display: contents;
-  align-items: center;
+  --tag-color: var(--yellow-color);
 }

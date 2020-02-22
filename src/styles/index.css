@@ -7,6 +7,7 @@
 body {
   margin: 0;
   font-family: var(--body-font);
+  font-size: var(--body-font-size);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -21,26 +22,30 @@ body {
   --content-width: 40rem;
 
   /* Theme */
-  --primary-color: #0442bf;
+  --primary-color: hsl(220, 96%, 38%);
   --on-primary-color: white;
-  --secondary-color: #103b73;
+  --secondary-color: hsl(214, 76%, 26%);
   --on-secondary-color: white;
-  --accent-color: #eaaf25;
-  --on-accent-color: black;
+  --accent-color: hsl(42, 82%, 53%);
+  --on-accent-color: hsl(0, 0%, 12%);
 
   /* Font */
   --body-font: "Lato", sans-serif;
   --header-font: "Nunito", sans-serif;
+  --title-font-size: 22px;
+  --body-font-size: 16px;
 
   /* Colors */
-  --blue-color: #0442bf;
+  --white-color: white;
+  --on-white-color: hsl(0, 0%, 12%);
+  --blue-color: hsl(220, 96%, 38%);
   --on-blue-color: white;
-  --red-color: red;
-  --on-red-color: black;
-  --yellow-color: gold;
-  --on-yellow-color: black;
-  --green-color: green;
-  --on-green-color: black;
+  --red-color: hsl(7, 76%, 50%);
+  --on-red-color: hsl(0, 0%, 12%);
+  --yellow-color: hsl(49, 100%, 41%);
+  --on-yellow-color: hsl(0, 0%, 12%);
+  --green-color: hsl(120, 100%, 25%);
+  --on-green-color: hsl(0, 0%, 12%);
 
   /* Misc */
   --border-radius: 20px;

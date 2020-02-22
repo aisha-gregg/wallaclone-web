@@ -4,15 +4,3 @@
   grid-gap: 30px;
   padding: var(--l);
 }
-
-.ad {
-  box-shadow: 7px 7px 13px#103b73;
-  padding: var(--medium);
-  border-radius: var(--medium);
-  text-align: center;
-}
-
-.ad img {
-  height: 150px;
-  object-fit: contain;
-}
