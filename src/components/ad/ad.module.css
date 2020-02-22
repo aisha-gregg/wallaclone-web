@@ -36,6 +36,15 @@
   position: relative;
 }
 
+.image-shadow {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: inset 0px -4px 8px 0px hsla(0, 0%, 0%, 0.09);
+}
+
 .sold {
   filter: grayscale(1);
 }

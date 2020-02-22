@@ -13,6 +13,8 @@ export function Ad({ ad, onClick }) {
           alt="image of product"
           src={ad.image}
         />
+        <div className={cx("image-shadow")}></div>
+
         {ad.isSold && <h2 className={cx("sold-text")}>Vendido</h2>}
       </div>
       <h2 className={cx("price")}>{ad.price}€</h2>
