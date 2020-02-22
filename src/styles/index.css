@@ -18,6 +18,7 @@ body {
   --m: 1rem;
   --l: 2rem;
   --xl: 4rem;
+  --content-width: 40rem;
 
   /* Theme */
   --primary-color: #0442bf;

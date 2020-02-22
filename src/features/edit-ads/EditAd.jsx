@@ -1,29 +1,46 @@
-import React from "react";
-import { Form } from "react-bootstrap";
-import styles from "./Editad.module.css";
-import { Header } from "../../components/header/Header";
+import React, { useState } from "react";
+import { Form, InputGroup } from "react-bootstrap";
+import styles from "./EditAd.module.css";
 import { AdForm } from "../../components/ad-form/AdForm";
 import { useHistory } from "react-router-dom";
+import { http } from "../../core/http";
 
-export function EditAd() {
+export function EditAd({ ad }) {
   const route = useHistory();
-  async function onSubmit({ name, description, price, tags, sell, image }) {
-    await http.put(`/ads/${route.location.pathname}`, {
+  const [isSold, setIsSold] = useState(ad.isSold);
+  async function onSubmit({
+    name,
+    description,
+    price,
+    tags,
+    sell,
+    image,
+    isSold
+  }) {
+    await http.put(`/ads/${ad._id}`, {
       name,
       description,
       sell,
       price,
       image,
-      tags
+      tags,
+      isSold
     });
     route.push("/");
   }
   return (
     <div className={styles.wrapper}>
-      <Header></Header>
+      <Form.Label>¡Editar tu anuncio!</Form.Label>
 
-      <Form.Label> Edit your Ad!</Form.Label>
-      <AdForm onSubmit={onSubmit} text="Edit"></AdForm>
+      <InputGroup className={styles.checkbox}>
+        <InputGroup.Checkbox
+          label="Checkbox"
+          onClick={() => setIsSold(!isSold)}
+          checked={isSold}
+        />
+        Vendido
+      </InputGroup>
+      <AdForm values={ad} onSubmit={onSubmit} text="Finalizar"></AdForm>
     </div>
   );
 }

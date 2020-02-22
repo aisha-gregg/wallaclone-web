@@ -1,16 +1,25 @@
 import React, { useState } from "react";
 import { Form, Dropdown, Button } from "react-bootstrap";
-import styles from "./AdForm.module.css";
 
-export function AdForm({ text, onSubmit }) {
-  const [adName, setAdName] = useState("");
-  const [adDescription, setAdDescription] = useState("");
-  const [adPrice, setAdPrice] = useState("");
-  const [type, setType] = useState("");
+export function AdForm({
+  text,
+  onSubmit,
+  values = {
+    name: "",
+    description: "",
+    price: 0,
+    type: "selling",
+    tag: "",
+    image: ""
+  }
+}) {
+  const [adName, setAdName] = useState(values.name);
+  const [adDescription, setAdDescription] = useState(values.description);
+  const [adPrice, setAdPrice] = useState(values.price);
+  const [type, setType] = useState(values.type);
 
-  const [tag, setTag] = useState("");
-  const [image, setImage] = useState("");
-
+  const [tag, setTag] = useState(values.tag);
+  const [image, setImage] = useState(values.image);
   function getBase64(file, callback) {
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -22,7 +31,6 @@ export function AdForm({ text, onSubmit }) {
   return (
     <Form
       onSubmit={e => {
-        console.log("hell");
         e.preventDefault();
         onSubmit({
           name: adName,
@@ -36,6 +44,7 @@ export function AdForm({ text, onSubmit }) {
     >
       <Form.Control
         onChange={event => setAdName(event.target.value)}
+        value={adName}
         id="name"
         type="text"
         placeholder="Título"
@@ -43,6 +52,7 @@ export function AdForm({ text, onSubmit }) {
 
       <Form.Control
         onChange={event => setAdDescription(event.target.value)}
+        value={adDescription}
         id="description"
         type="text"
         placeholder="Descripción"
@@ -50,6 +60,7 @@ export function AdForm({ text, onSubmit }) {
 
       <Form.Control
         onChange={event => setAdPrice(event.target.value)}
+        value={adPrice}
         id="price"
         type="number"
         placeholder="Precio"
@@ -60,7 +71,7 @@ export function AdForm({ text, onSubmit }) {
           setType(event.target.value);
         }}
         custom
-        checked={type === "se compra"}
+        checked={type === "buying"}
         value="buying"
         type="radio"
         id="buying"
@@ -70,7 +81,7 @@ export function AdForm({ text, onSubmit }) {
         onChange={event => {
           setType(event.target.value);
         }}
-        checked={type === "se vende"}
+        checked={type === "selling"}
         custom
         value="selling"
         type="radio"
