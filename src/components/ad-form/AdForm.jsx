@@ -1,8 +1,9 @@
 import React, { useState, useRef } from "react";
-import { Form, Dropdown, Button, InputGroup } from "react-bootstrap";
+import { Form, Dropdown, Button } from "react-bootstrap";
 import { AdBase } from "../ad-base/AdBase";
 import styles from "./AdForm.module.css";
 import classNames from "classnames/bind";
+import image from "../../images/placeholder.png";
 
 const cx = classNames.bind(styles);
 
@@ -13,16 +14,17 @@ export function AdForm({
     name: "",
     description: "",
     price: 0,
-    type: "selling",
+    sell: false,
     tag: "",
     image: "",
-    isSold: false
+    isSold: false,
+    image
   }
 }) {
   const [name, setName] = useState(values.name);
   const [description, setDescription] = useState(values.description);
   const [price, setPrice] = useState(values.price);
-  const [type, setType] = useState(values.type);
+  const [type, setType] = useState(values.sell ? "selling" : "buying");
   const [isSold, setIsSold] = useState(values.isSold);
   const [tag, setTag] = useState(values.tag);
   const [image, setImage] = useState(values.image);
@@ -50,7 +52,7 @@ export function AdForm({
     name,
     description,
     price,
-    type,
+    sell: type === "selling",
     isSold,
     tag,
     image,
@@ -69,7 +71,7 @@ export function AdForm({
           tags: [tag],
           image,
           isSold,
-          sell: type === "se compra" ? true : false
+          sell: type === "selling" ? true : false
         });
       }}
     >
@@ -108,7 +110,6 @@ export function AdForm({
               onChange={event => {
                 setType(event.target.value);
               }}
-              custom
               checked={type === "buying"}
               value="buying"
               type="radio"
@@ -120,7 +121,6 @@ export function AdForm({
                 setType(event.target.value);
               }}
               checked={type === "selling"}
-              custom
               value="selling"
               type="radio"
               id="selling"

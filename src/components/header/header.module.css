@@ -4,14 +4,41 @@
   align-items: center;
   background-color: var(--primary-color);
   border-radius: var(--s);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
   color: var(--on-primary-color);
   margin: 0;
   padding: var(--m);
 }
-.header h2 {
+
+.link {
+  color: inherit;
+}
+
+.link:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.link:hover + .logo {
+  animation: pulse 3s ease infinite alternate;
+}
+
+.title {
   position: relative;
   z-index: 1;
 }
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1.5);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
 .logo {
   z-index: 0;
   position: absolute;

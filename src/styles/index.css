@@ -10,6 +10,8 @@ body {
   font-size: var(--body-font-size);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--surface-color);
+  color: var(--on-surface-color);
 }
 
 :root {
@@ -19,7 +21,7 @@ body {
   --m: 1rem;
   --l: 2rem;
   --xl: 4rem;
-  --content-width: 40rem;
+  --content-width: 60rem;
 
   /* Theme */
   --primary-color: hsl(220, 96%, 38%);
@@ -28,6 +30,8 @@ body {
   --on-secondary-color: white;
   --accent-color: hsl(42, 82%, 53%);
   --on-accent-color: hsl(0, 0%, 12%);
+  --surface-color: white;
+  --on-surface-color: hsl(0, 0%, 12%);
 
   /* Font */
   --body-font: "Lato", sans-serif;
@@ -37,6 +41,8 @@ body {
 
   /* Colors */
   --white-color: white;
+  --black-color: hsl(0, 0%, 12%);
+  --gray-color: hsl(0, 0%, 82%);
   --on-white-color: hsl(0, 0%, 12%);
   --blue-color: hsl(220, 96%, 38%);
   --on-blue-color: white;

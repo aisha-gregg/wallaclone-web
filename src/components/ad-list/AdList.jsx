@@ -4,7 +4,7 @@ import { Ad } from "../ad/Ad";
 
 export function AdList({ ads, onAdClick }) {
   return (
-    <div className={styles.border}>
+    <div className={styles.grid}>
       {ads.map(ad => (
         <section key={ad._id}>
           <Ad onClick={() => onAdClick(ad.url)} ad={ad}></Ad>
