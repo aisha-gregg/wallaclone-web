@@ -4,12 +4,11 @@ import { Ad } from "../../components/ad/Ad";
 import { getAdDetail } from "../../core/AdsRepository";
 import { EditAd } from "../edit-ads/EditAd";
 import { Button } from "react-bootstrap";
-import styles from "./DetailAd.module.css";
 
 export function DetailAd() {
   const { seoId } = useParams();
   const [ad, setAd] = useState(undefined);
-  const [isShown, setIsShown] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
   const id = seoId.split("-").pop();
 
   useEffect(() => {
@@ -20,12 +19,18 @@ export function DetailAd() {
     <p>Loading</p>
   ) : (
     <>
-      <div className={styles.detail}></div>
-      <Ad ad={ad}></Ad>
-      <Button type="submit" onClick={() => setIsShown(!isShown)}>
-        Editar
-      </Button>
-      {isShown && <EditAd ad={ad}></EditAd>}
+      {isEditing ? (
+        <EditAd ad={ad}></EditAd>
+      ) : (
+        <Ad
+          ad={ad}
+          action={
+            <Button type="submit" onClick={() => setIsEditing(!isEditing)}>
+              Editar
+            </Button>
+          }
+        ></Ad>
+      )}
     </>
   );
 }
