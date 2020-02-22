@@ -4,25 +4,34 @@ import { Login } from "./features/login/Login";
 import { Home } from "./features/home/Home";
 import { CreateAd } from "./features/create-ads/CreateAd";
 import { DetailAd } from "./features/detail-ad/DetailAd";
+import { Page } from "./components/page/Page";
 
 function App() {
   return (
     <Router>
       <Switch>
         <Route path="/login">
-          <Login></Login>
+          <Page>
+            <Login></Login>
+          </Page>
         </Route>
 
         <Route path="/create-ad">
-          <CreateAd></CreateAd>
+          <Page>
+            <CreateAd></CreateAd>
+          </Page>
         </Route>
 
         <Route path="/ads/:seoId">
-          <DetailAd></DetailAd>
+          <Page>
+            <DetailAd></DetailAd>
+          </Page>
         </Route>
 
         <Route exact path="/">
-          <Home />
+          <Page>
+            <Home />
+          </Page>
         </Route>
       </Switch>
     </Router>
