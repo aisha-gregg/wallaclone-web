@@ -1,7 +1,7 @@
 import Axios from "axios";
 
 const http = Axios.create({
-  baseURL: `${process.env.API_URL}/api/`
+  baseURL: `http://ec2-3-135-224-116.us-east-2.compute.amazonaws.com:3000/api/`
 });
 
 http.interceptors.request.use(config => {
