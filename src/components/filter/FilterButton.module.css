@@ -1,0 +1,36 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--gray-color);
+  border-radius: 9999px;
+  padding-left: var(--s);
+  position: relative;
+  z-index: 1;
+}
+
+.input {
+  border: none;
+  background: none;
+  outline: none;
+  width: min-content;
+}
+
+.input-icon {
+  margin-right: var(--s);
+}
+
+.label {
+  margin-right: var(--m);
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  background-color: var(--surface-color);
+  padding: var(--m);
+  z-index: 2;
+}
+
+.buttons {
+  display: flex;
+}

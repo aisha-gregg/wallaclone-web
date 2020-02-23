@@ -1,21 +1,13 @@
 import React from "react";
 import styles from "./search.module.css";
+import classNames from "classnames/bind";
 
-export function Search() {
+const cx = classNames.bind(styles);
+
+export function Search({ onClick, className }) {
   return (
-    <div className={styles.search}>
-      <img
-        src="./images/filter.png"
-        className={styles.filter}
-        alt="image of a filter"
-      />
-
-      <input
-        type="text"
-        placeholder="Search"
-        aria-label="Search"
-        className={styles.searchbar}
-      />
+    <div className={cx("search", className)} onClick={onClick}>
+      <i className="icon">filter_list</i>
     </div>
   );
 }
