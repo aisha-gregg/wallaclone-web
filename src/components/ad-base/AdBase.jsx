@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./AdBase.module.css";
 import classNames from "classnames/bind";
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
@@ -34,7 +35,9 @@ export function AdBase({
       <div className={cx("price")}>{price}</div>
       <section className={cx("information")}>
         <header className={cx("header")}>
-          <h5>{ad.user.email}</h5>
+          <h5>
+            <Link to={`/users/${ad.userId}`}>{ad.user.email}</Link>
+          </h5>
           <h5>{new Intl.DateTimeFormat().format(ad.date)}</h5>
         </header>
         <div className={cx("name")}>
