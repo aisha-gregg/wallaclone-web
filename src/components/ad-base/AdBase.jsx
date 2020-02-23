@@ -1,7 +1,15 @@
 import React from "react";
 import styles from "./AdBase.module.css";
 import classNames from "classnames/bind";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+  TwitterIcon,
+  WhatsappIcon,
+  FacebookIcon
+} from "react-share";
 
 const cx = classNames.bind(styles);
 
@@ -16,8 +24,10 @@ export function AdBase({
   tags,
   image,
   onImageClick,
-  isSold
+  isSold,
+  favorite
 }) {
+  const history = useHistory();
   return (
     <article className={cx("card")} onClick={onClick}>
       <div className={cx("image-wrapper")}>
@@ -28,7 +38,7 @@ export function AdBase({
           alt="image of product"
           src={ad.image}
         />
-
+        <div className={cx("favorite")}>{favorite}</div>
         {ad.isSold && <h2 className={cx("sold-text")}>Vendido</h2>}
         <div onClick={onImageClick} className={cx("image-shadow")}></div>
       </div>
@@ -64,6 +74,15 @@ export function AdBase({
         </div>
         {type}
         {isSold}
+        <FacebookShareButton url={`${window.location}`}>
+          <FacebookIcon round size={32}></FacebookIcon>
+        </FacebookShareButton>
+        <TwitterShareButton url={`${window.location}`}>
+          <TwitterIcon round size={32}></TwitterIcon>
+        </TwitterShareButton>
+        <WhatsappShareButton url={`${window.location}`}>
+          <WhatsappIcon round size={32}></WhatsappIcon>
+        </WhatsappShareButton>
       </section>
       {action}
     </article>
