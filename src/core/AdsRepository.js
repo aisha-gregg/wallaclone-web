@@ -1,9 +1,10 @@
 import { http } from "./http";
 
-export async function getAdsDetail({ filters }) {
+export async function getAdsDetail({ filters, ownerId }) {
   const parsedFilters = {
     ...filters,
-    tags: filters.tags?.join(",") ?? undefined
+    tags: filters.tags?.join(",") ?? undefined,
+    ownerId
   };
   const { data: ads } = await http.get("/ads", { params: parsedFilters });
   const usersPromises = ads.map(ad => http.get(`/users/${ad.userId}`));

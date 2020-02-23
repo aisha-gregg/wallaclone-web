@@ -6,6 +6,7 @@ import { CreateAd } from "./features/create-ads/CreateAd";
 import { DetailAd } from "./features/detail-ad/DetailAd";
 import { Page } from "./components/page/Page";
 import { UserContext } from "./core/UserContext";
+import { PersonalArea } from "./features/personal-area/PersonalArea";
 
 export function App() {
   const [user, setUser] = useState();
@@ -41,6 +42,12 @@ export function App() {
           <Route path="/ads/:seoId">
             <Page>
               <DetailAd></DetailAd>
+            </Page>
+          </Route>
+
+          <Route path="/personal-area">
+            <Page>
+              <PersonalArea></PersonalArea>
             </Page>
           </Route>
 

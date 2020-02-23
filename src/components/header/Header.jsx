@@ -26,12 +26,16 @@ export function Header() {
       </div>
 
       <div className={cx("links")}>
-        <Link to="/profile" className={cx("link")}>
-          Area Personal
-        </Link>
-        <Link to="/create-ad" className={cx("link")}>
-          Crear anuncio
-        </Link>
+        {isLoggedIn && (
+          <Link to="/personal-area" className={cx("link")}>
+            Área Personal
+          </Link>
+        )}
+        {isLoggedIn && (
+          <Link to="/create-ad" className={cx("link")}>
+            Crear anuncio
+          </Link>
+        )}
         {!isLoggedIn && (
           <Link to="/login" className={cx("link")}>
             Iniciar sesión
