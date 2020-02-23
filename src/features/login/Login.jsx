@@ -18,7 +18,7 @@ export function Login() {
     });
     localStorage.setItem("token", response.data.token);
     localStorage.setItem("id", response.data.id);
-    setUser({ email, id: response.data.id });
+    setUser({ id: response.data.id });
     setIsLoggedIn(true);
     route.push("/");
   }

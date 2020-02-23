@@ -14,6 +14,8 @@ export function App() {
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("token") !== null;
     setIsLoggedIn(isLoggedIn);
+    const id = localStorage.getItem("id");
+    setUser({ id });
   }, []);
 
   const changeUser = user => {
