@@ -35,7 +35,7 @@ export function AdBase({
       <section className={cx("information")}>
         <header className={cx("header")}>
           <h5>{ad.user.email}</h5>
-          <h5>{new Intl.DateTimeFormat().format(new Date(ad.date))}</h5>
+          <h5>{new Intl.DateTimeFormat().format(ad.date)}</h5>
         </header>
         <div className={cx("name")}>
           {name}

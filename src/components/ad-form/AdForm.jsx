@@ -18,7 +18,11 @@ export function AdForm({
     tag: "",
     image: "",
     isSold: false,
-    image
+    image,
+    date: new Date(),
+    user: {
+      email: ""
+    }
   }
 }) {
   const [name, setName] = useState(values.name);

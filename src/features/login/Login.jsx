@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styles from "./login.module.css";
 import { Button, Form } from "react-bootstrap";
 import { http } from "../../core/http";
 import { useHistory } from "react-router-dom";
-import { Header } from "../../components/header/Header";
+import { UserContext } from "../../core/UserContext";
 
 export function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const route = useHistory();
+  const { setUser, setIsLoggedIn } = useContext(UserContext);
 
   async function submit() {
     const response = await http.put("/users", {
@@ -16,6 +17,9 @@ export function Login() {
       password
     });
     localStorage.setItem("token", response.data.token);
+    localStorage.setItem("id", response.data.id);
+    setUser({ email, id: response.data.id });
+    setIsLoggedIn(true);
     route.push("/");
   }
 
@@ -23,10 +27,6 @@ export function Login() {
     <div className={styles.wrapper}>
       <div className={styles.login}>
         <Form>
-          <Form.Label>
-            {" "}
-            <Header></Header>
-          </Form.Label>
           <Form.Control
             onChange={event => setEmail(event.target.value)}
             id="email"

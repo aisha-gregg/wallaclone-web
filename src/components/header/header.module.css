@@ -1,6 +1,6 @@
 .header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background-color: var(--primary-color);
   border-radius: var(--s);
@@ -9,6 +9,16 @@
   color: var(--on-primary-color);
   margin: 0;
   padding: var(--m);
+}
+
+.wrapper-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.links > * {
+  margin-right: var(--m);
 }
 
 .link {

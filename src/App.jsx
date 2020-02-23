@@ -1,41 +1,54 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Login } from "./features/login/Login";
 import { Home } from "./features/home/Home";
 import { CreateAd } from "./features/create-ads/CreateAd";
 import { DetailAd } from "./features/detail-ad/DetailAd";
 import { Page } from "./components/page/Page";
+import { UserContext } from "./core/UserContext";
 
-function App() {
+export function App() {
+  const [user, setUser] = useState();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("token") !== null;
+    setIsLoggedIn(isLoggedIn);
+  }, []);
+
+  const changeUser = user => {
+    setUser(user);
+  };
+
   return (
-    <Router>
-      <Switch>
-        <Route path="/login">
-          <Page>
+    <UserContext.Provider
+      value={{ user, isLoggedIn, setIsLoggedIn, setUser: changeUser }}
+    >
+      <Router>
+        <Switch>
+          <Route path="/login">
             <Login></Login>
-          </Page>
-        </Route>
+          </Route>
 
-        <Route path="/create-ad">
-          <Page>
-            <CreateAd></CreateAd>
-          </Page>
-        </Route>
+          <Route path="/create-ad">
+            <Page>
+              <CreateAd></CreateAd>
+            </Page>
+          </Route>
 
-        <Route path="/ads/:seoId">
-          <Page>
-            <DetailAd></DetailAd>
-          </Page>
-        </Route>
+          <Route path="/ads/:seoId">
+            <Page>
+              <DetailAd></DetailAd>
+            </Page>
+          </Route>
 
-        <Route exact path="/">
-          <Page>
-            <Home />
-          </Page>
-        </Route>
-      </Switch>
-    </Router>
+          <Route exact path="/">
+            <Page>
+              <Home />
+            </Page>
+          </Route>
+        </Switch>
+      </Router>
+    </UserContext.Provider>
   );
 }
-
-export default App;

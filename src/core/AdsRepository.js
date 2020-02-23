@@ -9,6 +9,7 @@ export async function getAdsDetail({ filters }) {
     const adUser = users.find(user => user._id === ad.userId);
     return {
       ...ad,
+      date: new Date(ad.date),
       user: adUser
     };
   });
@@ -22,6 +23,7 @@ export async function getAdDetail(id) {
 
   return {
     ...ad,
+    date: new Date(ad.date),
     user
   };
 }
