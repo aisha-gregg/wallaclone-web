@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Form } from "react-bootstrap";
 import { Search } from "../search/Search";
 import classNames from "classnames/bind";
 import styles from "./Filter.module.css";
@@ -11,7 +10,8 @@ export function Filter({ onApply }) {
   const [name, setName] = useState("");
   const [minPrice, setMinPrice] = useState(undefined);
   const [maxPrice, setMaxPrice] = useState(undefined);
-  const [tags, setTags] = useState(undefined);
+  const [tag, setTag] = useState(undefined);
+  const [isRecent, setIsRecent] = useState(true);
   const [isShown, setIsShown] = useState(true);
 
   useEffect(() => {
@@ -19,9 +19,19 @@ export function Filter({ onApply }) {
       name: name === "" ? undefined : name,
       minPrice,
       maxPrice,
-      tags
+      tags: tag === undefined ? undefined : [tag],
+      sortByDate: isRecent ? "most-recent" : "oldest"
     });
-  }, [name, minPrice, maxPrice, tags]);
+  }, [name, minPrice, maxPrice, tag, isRecent]);
+
+  const onApplyTag = tag => {
+    setTag(tag);
+  };
+
+  const onApplyPrice = ({ minPrice, maxPrice }) => {
+    setMinPrice(minPrice);
+    setMaxPrice(maxPrice);
+  };
 
   return (
     <section className={cx("wrapper")}>
@@ -36,19 +46,21 @@ export function Filter({ onApply }) {
         label="Precio"
         className={cx("filter", "filter-two", { "is-shown": isShown })}
         as="price"
-        onChange={value => setMinPrice(value)}
+        onApply={onApplyPrice}
       ></FilterButton>
       <FilterButton
         icon="label"
         label="Etiquetas"
         className={cx("filter", "filter-three", { "is-shown": isShown })}
-        onChange={value => setMaxPrice(value)}
+        as="tags"
+        onApply={onApplyTag}
       ></FilterButton>
       <FilterButton
         icon="calendar_today"
-        label="Más reciente"
+        label={isRecent ? "Más reciente" : "Más antiguo"}
+        as="toggle"
         className={cx("filter", "filter-four", { "is-shown": isShown })}
-        onChange={value => setTags(value)}
+        onToggle={() => setIsRecent(!isRecent)}
       ></FilterButton>
       <Search
         className={cx("search")}

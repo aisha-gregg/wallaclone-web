@@ -1,7 +1,7 @@
 .card {
   border-radius: var(--border-radius);
   display: flex;
-  box-shadow: 0 3px 15px 6px hsla(0, 0%, 0%, 0.1);
+  box-shadow: var(--shadow);
   flex-direction: column;
   position: relative;
   overflow: hidden;

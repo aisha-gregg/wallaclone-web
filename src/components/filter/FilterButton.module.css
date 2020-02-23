@@ -20,17 +20,21 @@
 }
 
 .label {
+  cursor: pointer;
   margin-right: var(--m);
+  user-select: none;
 }
 
 .dropdown {
   position: absolute;
-  top: 100%;
+  top: calc(100% + var(--s));
   background-color: var(--surface-color);
   padding: var(--m);
   z-index: 2;
+  box-shadow: var(--shadow);
 }
 
 .buttons {
   display: flex;
+  justify-content: space-between;
 }
